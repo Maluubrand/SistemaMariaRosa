@@ -299,6 +299,9 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
+        JDlgFuncionariosPesquisar jDlgFuncionariosPesquisar =  new JDlgFuncionariosPesquisar(null,true);
+        jDlgFuncionariosPesquisar.setTelaPai(this);
+        jDlgFuncionariosPesquisar.setVisible(true);
         
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

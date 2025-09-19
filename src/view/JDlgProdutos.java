@@ -266,7 +266,9 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        
+        JDlgProdutosPesquisar jDlgProdutosPesquisar =  new JDlgProdutosPesquisar(null,true);
+        jDlgProdutosPesquisar.setTelaPai(this);
+        jDlgProdutosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     private void jCboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboCategoriaActionPerformed

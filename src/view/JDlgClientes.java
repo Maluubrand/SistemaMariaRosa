@@ -437,7 +437,9 @@ public class JDlgClientes extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-
+        JDlgClientesPesquisar JDlgClientesPesquisar =  new JDlgClientesPesquisar(null,true);
+        JDlgClientesPesquisar.setTelaPai(this);
+        JDlgClientesPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
     /**
