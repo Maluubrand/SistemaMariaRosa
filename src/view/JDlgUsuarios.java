@@ -4,14 +4,6 @@
  */
 package view;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
 import tools.Util;
 
 /**
@@ -273,7 +265,7 @@ public class JDlgUsuarios extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, 
-        jTxtCodigo,jTxtNome,  jTxtApelido, jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, jChbAtivo,    jBtnConfirmar, jBtnCancelar);          
+        jTxtCodigo,jTxtNome,  jTxtApelido, jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);          
         Util.habilitar(false, 
         jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(jTxtCodigo,jTxtNome,jCboNivel);
