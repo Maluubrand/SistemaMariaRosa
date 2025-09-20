@@ -83,7 +83,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMnuCadastros.add(jSeparator1);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exit.png"))); // NOI18N
         jMenuItem4.setText("Sair");
         jMnuCadastros.add(jMenuItem4);
 
@@ -110,22 +109,26 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+        JDlgUsuarios jDlgUsuarios = new JDlgUsuarios(this, true);
+        jDlgUsuarios.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-       
+        JDlgFuncionarios jDlgFuncionarios = new JDlgFuncionarios(this, true);
+        jDlgFuncionarios.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-       
+        JDlgClientes jDlgClientes = new JDlgClientes(this, true);
+        jDlgClientes.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        
+        JDlgProdutos JDlgProdutos = new JDlgProdutos(this, true);
+        JDlgProdutos.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
