@@ -18,7 +18,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
         setLocationRelativeTo(null);
        
         Util.habilitar(false,jTxtCodigo,
-        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo,jBtnConfirmar, jBtnCancelar);
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -88,7 +88,7 @@ JDlgFuncionarios jDlgFuncionarios;
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-         System.exit(0);    
+         setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**

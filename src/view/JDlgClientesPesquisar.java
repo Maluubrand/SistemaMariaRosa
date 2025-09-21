@@ -19,7 +19,7 @@ JDlgClientes JDlgClientes;
     public JDlgClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Pesquisar usuarios");
+        setTitle("Pesquisar Clientes");
         setLocationRelativeTo(null);
     }
     
@@ -88,7 +88,7 @@ JDlgClientes JDlgClientes;
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+          setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**
