@@ -47,7 +47,7 @@ public class FuncionariosDAO extends AbstractDAO{
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MlrFuncionarios.class);
-        criteria.add(Restrictions.eq("mlrIdFuncionarios", codigo));
+        criteria.add(Restrictions.eq("mlr_id_funcionarios", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();        
         return lista;
