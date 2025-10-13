@@ -4,8 +4,6 @@
  */
 package tools;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -64,13 +62,10 @@ public class Util {
 
     }
 
-    public static Date strToDate(String data) throws ParseException {
-        SimpleDateFormat formatar_fofinho = new SimpleDateFormat("dd/MM/yyyy");
-        return formatar_fofinho.parse(data);  //My person make in my castle 
+       public static Date strToDate(String data) {
+        return null;
     }
-
     public static String dateToStr(Date data) {
-        SimpleDateFormat formatar_fofinho = new SimpleDateFormat("dd/MM/yyyy");
-        return formatar_fofinho.format(data);  //My person make in my castle
+        return "";
     }
 }

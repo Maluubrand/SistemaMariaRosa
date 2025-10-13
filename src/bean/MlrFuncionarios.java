@@ -23,7 +23,7 @@ public class MlrFuncionarios  implements java.io.Serializable {
      private String mlrCpf;
      private String mlrTelefone;
      private String mlrEmail;
-     private String mlrCargo;
+     private int mlrCargo;
      private Double mlrSalario;
 
     public MlrFuncionarios() {
@@ -33,7 +33,7 @@ public class MlrFuncionarios  implements java.io.Serializable {
     public MlrFuncionarios(int mlrIdFuncionarios) {
         this.mlrIdFuncionarios = mlrIdFuncionarios;
     }
-    public MlrFuncionarios(int mlrIdFuncionarios, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, String mlrCargo, Double mlrSalario, Set mlrVendases) {
+    public MlrFuncionarios(int mlrIdFuncionarios, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, int mlrCargo, Double mlrSalario, Set mlrVendases) {
        this.mlrIdFuncionarios = mlrIdFuncionarios;
        this.mlrNome = mlrNome;
        this.mlrCpf = mlrCpf;
@@ -97,11 +97,11 @@ public class MlrFuncionarios  implements java.io.Serializable {
 
     
     @Column(name="mlr_cargo", length=50)
-    public String getMlrCargo() {
+    public int getMlrCargo() {
         return this.mlrCargo;
     }
     
-    public void setMlrCargo(String mlrCargo) {
+    public void setMlrCargo(int mlrCargo) {
         this.mlrCargo = mlrCargo;
     }
 

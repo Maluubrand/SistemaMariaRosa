@@ -4,12 +4,19 @@
  */
 package view;
 
+import bean.MlrFuncionarios;
+import bean.MlrProdutos;
+import dao.FuncionariosDAO;
 import tools.Util;
+
 /**
  *
  * @author TheFoursalesCo
  */
 public class JDlgFuncionarios extends javax.swing.JDialog {
+       
+    private boolean incluir;
+    
     
     public JDlgFuncionarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -19,6 +26,32 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
        
         Util.habilitar(false,jTxtCodigo,
         jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo,jBtnConfirmar, jBtnCancelar);
+    }
+    
+    public void beanView(MlrFuncionarios funcionarios) { 
+        jTxtCodigo.setText(Util.intToStr(funcionarios.getMlrIdFuncionarios()));
+        jTxtNome.setText( funcionarios.getMlrNome());
+        jTxtEmail.setText( funcionarios.getMlrEmail());
+        jTxtTelefone.setText( funcionarios.getMlrTelefone());
+        jFmtCpf.setText(funcionarios.getMlrCpf());
+        jFmtSalario.setText(String.valueOf(funcionarios.getMlrSalario()));
+        jCboCargo.setSelectedIndex( funcionarios.getMlrCargo());
+       
+    }
+    public MlrFuncionarios viewBean() {
+        MlrFuncionarios funcionarios = new MlrFuncionarios();
+        int codigo = Util.strToInt( jTxtCodigo.getText() );                
+        funcionarios.setMlrIdFuncionarios(codigo);
+        //usuarios.setIdusuarios(Util.strToInt( jTxtCodigo.getText() ));
+        
+        funcionarios.setMlrNome( jTxtNome.getText());
+        funcionarios.setMlrEmail(jTxtEmail.getText());
+        funcionarios.setMlrTelefone(jTxtTelefone.getText());
+        funcionarios.setMlrCpf( jFmtCpf.getText());
+        funcionarios.setMlrSalario(Double.valueOf( jFmtSalario.getText()));
+        funcionarios.setMlrCargo( jCboCargo.getSelectedIndex());          
+        return funcionarios;
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -257,39 +290,53 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
        Util.habilitar(true,jTxtCodigo,
-       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(false,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-      Util.limpar(jTxtCodigo,
+       Util.limpar(jTxtCodigo,
        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
        Util.habilitar(true,jTxtCodigo,
-       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(false,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-       Util.limpar(jTxtCodigo,
-       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-       Util.pergunta("Deseja excluir??");      
+       if (Util.pergunta("Deseja excluir ?") == true) {
+            FuncionariosDAO funcionariosDAO = new FuncionariosDAO();
+            funcionariosDAO.delete( viewBean() );
+        }
+        Util.limpar(jTxtCodigo,
+       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);  
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        FuncionariosDAO funcionariosDAO = new FuncionariosDAO();
+        MlrFuncionarios funcionarios = viewBean();
+        if (incluir == true) {
+            funcionariosDAO.insert(funcionarios);
+            //usuariosDAO.insert( viewBean() );
+        } else {
+            funcionariosDAO.update(funcionarios);
+            //usuariosDAO.update( viewBean() );
+        }
        Util.habilitar(false,jTxtCodigo,
-       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(true,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
- Util.limpar(jTxtCodigo,
+       Util.limpar(jTxtCodigo,
        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
        Util.habilitar(false,jTxtCodigo,
-       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
+       jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(true,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(jTxtCodigo,
        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo);
@@ -298,7 +345,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
         JDlgFuncionariosPesquisar jDlgFuncionariosPesquisar =  new JDlgFuncionariosPesquisar(null,true);
-        jDlgFuncionariosPesquisar.setTelaPai(this);
+        jDlgFuncionariosPesquisar.setTelaAnterior(this);
         jDlgFuncionariosPesquisar.setVisible(true);
         
     }//GEN-LAST:event_jBtnPesquisarActionPerformed

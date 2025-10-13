@@ -4,8 +4,9 @@
  */
 package view;
 
+import dao.UsuariosDAO;
 import java.util.List;
-
+import bean.MlrUsuarios;
 /**
  *
  * @author 
@@ -13,6 +14,7 @@ import java.util.List;
 public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     JDlgUsuarios jDlgUsuarios;
+    ControllerUsuarios controllerUsuarios;
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
@@ -21,11 +23,19 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         initComponents();
         setTitle("Pesquisar Usuarios");
         setLocationRelativeTo(null);
-        
+        controllerUsuarios = new ControllerUsuarios();
+        UsuariosDAO usuariosDAO = new UsuariosDAO();
+        List lista = (List) usuariosDAO.listAll();
+        controllerUsuarios.setList(lista);
+        jTable1.setModel(controllerUsuarios);
     }
-    public void setTelaPai(JDlgUsuarios jDlgUsuarios){
-    this.jDlgUsuarios = jDlgUsuarios;
+
+    public void setTelaAnterior( JDlgUsuarios jDlgUsuarios) {
+        this.jDlgUsuarios = jDlgUsuarios;
     }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,7 +98,9 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:]
-         setVisible(false);
+        MlrUsuarios usuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
+        jDlgUsuarios.beanView(usuarios);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jBtnOkActionPerformed
 

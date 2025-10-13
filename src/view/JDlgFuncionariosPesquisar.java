@@ -4,6 +4,9 @@
  */
 package view;
 
+import dao.FuncionariosDAO;
+import bean.MlrFuncionarios;
+import java.util.List;
 
 /**
  *
@@ -12,6 +15,7 @@ package view;
 public class JDlgFuncionariosPesquisar extends javax.swing.JDialog {
 
 JDlgFuncionarios jDlgFuncionarios;
+ControllerFuncionarios controllerFuncionarios;
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
@@ -20,11 +24,15 @@ JDlgFuncionarios jDlgFuncionarios;
         initComponents();
         setTitle("Pesquisar funcionarios");
         setLocationRelativeTo(null);
-        
+        controllerFuncionarios = new ControllerFuncionarios();
+        FuncionariosDAO funcionariosDAO = new FuncionariosDAO();
+        List lista = (List) funcionariosDAO.listAll();
+        controllerFuncionarios.setList(lista);
+        jTable1.setModel(controllerFuncionarios);
     }
-    
-    public void setTelaPai(JDlgFuncionarios jDlgFuncionarios){
-    this.jDlgFuncionarios = jDlgFuncionarios;
+
+    public void setTelaAnterior( JDlgFuncionarios jDlgFuncionarios) {
+        this.jDlgFuncionarios = jDlgFuncionarios;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,7 +96,9 @@ JDlgFuncionarios jDlgFuncionarios;
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-         setVisible(false);
+         MlrFuncionarios funcionarios =  controllerFuncionarios.getBean( jTable1.getSelectedRow() );
+         jDlgFuncionarios.beanView(funcionarios);
+         this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**

@@ -24,7 +24,7 @@ public class MlrProdutos  implements java.io.Serializable {
      private int mlrIdProdutos;
      private String mlrNome;
      private String mlrDescricao;
-     private String mlrCategoria;
+     private int mlrCategoria;
      private Double mlrPreco;
      private String mlrMarca;
      private Date mlrDataValidade;
@@ -36,7 +36,7 @@ public class MlrProdutos  implements java.io.Serializable {
     public MlrProdutos(int mlrIdProdutos) {
         this.mlrIdProdutos = mlrIdProdutos;
     }
-    public MlrProdutos(int mlrIdProdutos, String mlrNome, String mlrDescricao, String mlrCategoria, Double mlrPreco, String mlrMarca, Date mlrDataValidade, Set mlrVendasProdutoses) {
+    public MlrProdutos(int mlrIdProdutos, String mlrNome, String mlrDescricao, int mlrCategoria, Double mlrPreco, String mlrMarca, Date mlrDataValidade, Set mlrVendasProdutoses) {
        this.mlrIdProdutos = mlrIdProdutos;
        this.mlrNome = mlrNome;
        this.mlrDescricao = mlrDescricao;
@@ -80,11 +80,11 @@ public class MlrProdutos  implements java.io.Serializable {
 
     
     @Column(name="mlr_categoria", length=50)
-    public String getMlrCategoria() {
+    public int getMlrCategoria() {
         return this.mlrCategoria;
     }
     
-    public void setMlrCategoria(String mlrCategoria) {
+    public void setMlrCategoria(int mlrCategoria) {
         this.mlrCategoria = mlrCategoria;
     }
 

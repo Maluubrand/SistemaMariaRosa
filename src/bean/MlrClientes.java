@@ -30,7 +30,7 @@ public class MlrClientes  implements java.io.Serializable {
      private String mlrEndereco;
      private String mlrBairro;
      private String mlrCidade;
-     private String mlrEstado;
+     private int mlrEstado;
      private String mlrCep;
      private Date mlrDataCadastro;
      private Double mlrLimiteCredito;
@@ -42,7 +42,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
 	
-    public MlrClientes(int mlrIdClientes, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, Date mlrDataNascimento, String mlrEndereco, String mlrBairro, String mlrCidade, String mlrEstado, String mlrCep, Date mlrDataCadastro, Double mlrLimiteCredito, String mlrObservacoes, String mlrAtivo) {
+    public MlrClientes(int mlrIdClientes, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, Date mlrDataNascimento, String mlrEndereco, String mlrBairro, String mlrCidade, int mlrEstado, String mlrCep, Date mlrDataCadastro, Double mlrLimiteCredito, String mlrObservacoes, String mlrAtivo) {
         this.mlrIdClientes = mlrIdClientes;
         this.mlrNome = mlrNome;
         this.mlrCpf = mlrCpf;
@@ -59,7 +59,7 @@ public class MlrClientes  implements java.io.Serializable {
         this.mlrObservacoes = mlrObservacoes;
         this.mlrAtivo = mlrAtivo;
     }
-    public MlrClientes(int mlrIdClientes, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, Date mlrDataNascimento, String mlrEndereco, String mlrBairro, String mlrCidade, String mlrEstado, String mlrCep, Date mlrDataCadastro, Double mlrLimiteCredito, String mlrObservacoes, String mlrAtivo, Set mlrVendases) {
+    public MlrClientes(int mlrIdClientes, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, Date mlrDataNascimento, String mlrEndereco, String mlrBairro, String mlrCidade, int mlrEstado, String mlrCep, Date mlrDataCadastro, Double mlrLimiteCredito, String mlrObservacoes, String mlrAtivo, Set mlrVendases) {
        this.mlrIdClientes = mlrIdClientes;
        this.mlrNome = mlrNome;
        this.mlrCpf = mlrCpf;
@@ -171,11 +171,11 @@ public class MlrClientes  implements java.io.Serializable {
 
     
     @Column(name="mlr_estado", nullable=false, length=2)
-    public String getMlrEstado() {
+    public int getMlrEstado() {
         return this.mlrEstado;
     }
     
-    public void setMlrEstado(String mlrEstado) {
+    public void setMlrEstado(int mlrEstado) {
         this.mlrEstado = mlrEstado;
     }
 
