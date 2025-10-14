@@ -40,6 +40,10 @@ public class MlrClientes  implements java.io.Serializable {
 
     public MlrClientes() {
     }
+     public MlrClientes(int mlrIdClientes) {
+        this.mlrIdClientes = mlrIdClientes;
+    }
+
 
 	
     public MlrClientes(int mlrIdClientes, String mlrNome, String mlrCpf, String mlrTelefone, String mlrEmail, Date mlrDataNascimento, String mlrEndereco, String mlrBairro, String mlrCidade, int mlrEstado, String mlrCep, Date mlrDataCadastro, Double mlrLimiteCredito, String mlrObservacoes, String mlrAtivo) {
@@ -227,6 +231,10 @@ public class MlrClientes  implements java.io.Serializable {
     
     public void setMlrAtivo(String mlrAtivo) {
         this.mlrAtivo = mlrAtivo;
+    }
+    @Override
+    public String toString() {
+        return this.mlrNome;
     }
 
 }

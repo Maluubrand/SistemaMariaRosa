@@ -114,6 +114,10 @@ public class MlrFuncionarios  implements java.io.Serializable {
     public void setMlrSalario(Double mlrSalario) {
         this.mlrSalario = mlrSalario;
     }
+    @Override
+    public String toString() {
+        return this.mlrNome;
+    }
 
 
 

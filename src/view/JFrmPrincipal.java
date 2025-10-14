@@ -40,6 +40,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMnuMovimentos = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +95,17 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMnuCadastros);
 
         jMnuMovimentos.setText("Movimentos");
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Buy.png"))); // NOI18N
+        jMenuItem6.setText("Vendas");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMnuMovimentos.add(jMenuItem6);
+
         jMenuBar1.add(jMnuMovimentos);
 
         setJMenuBar(jMenuBar1);
@@ -136,6 +148,12 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         JDlgProdutos.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        JDlgVendas JDlgVendas = new JDlgVendas(this, true);
+        JDlgVendas.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -177,6 +195,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu jMnuCadastros;
     private javax.swing.JMenu jMnuMovimentos;
     private javax.swing.JPopupMenu.Separator jSeparator1;
