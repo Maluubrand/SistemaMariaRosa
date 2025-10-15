@@ -50,6 +50,10 @@ public class JDlgClientes extends javax.swing.JDialog {
         }
         
     }
+                                               
+   
+ 
+
     public MlrClientes viewBean() {
         MlrClientes clientes = new MlrClientes();
         int codigo = Util.strToInt( jTxtCodigo.getText() );                
@@ -433,7 +437,15 @@ public class JDlgClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_jChbAtivoActionPerformed
 
     private void jFmtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtCepActionPerformed
-        // TODO add your handling code here:
+         
+                                            
+    tools.Util.validarCep(
+        jFmtCep.getText(), 
+        jTxtEndereco, 
+        jTxtBairro, 
+        jTxtCidade
+    );
+
     }//GEN-LAST:event_jFmtCepActionPerformed
 
     private void jFmtDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmtDataCadastroActionPerformed
@@ -443,7 +455,7 @@ public class JDlgClientes extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
        Util.habilitar(true, jTxtCodigo,jTxtNome,jFmtCpf, jTxtTelefone,jTxtEmail,jFmtDataNascimento, 
-                jTxtEndereco, jTxtBairro, jTxtCidade, jCboEstado, jFmtCep,jFmtDataCadastro,jFmtLimiteCredito,
+                jCboEstado, jFmtCep,jFmtDataCadastro,jFmtLimiteCredito,
                 jTxtObservacoes,jChbAtivo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(false, 
                 jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
@@ -477,6 +489,15 @@ public class JDlgClientes extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        Util.validarCep(
+        jFmtCep.getText(), 
+        jTxtEndereco, 
+        jTxtBairro, 
+        jTxtCidade 
+    
+    );
+
+   
         ClientesDAO clientesDAO = new ClientesDAO();
         MlrClientes clientes = viewBean();
         if (incluir == true) {
@@ -494,6 +515,12 @@ public class JDlgClientes extends javax.swing.JDialog {
          Util.limpar(jTxtCodigo,jTxtNome,jFmtCpf, jTxtTelefone,jTxtEmail,jFmtDataNascimento, 
                 jTxtEndereco, jTxtBairro, jTxtCidade, jCboEstado, jFmtCep,jFmtDataCadastro,jFmtLimiteCredito,
                 jTxtObservacoes,jChbAtivo);
+        Util.validarCep(
+        jFmtCep.getText(), 
+        jTxtEndereco, 
+        jTxtBairro, 
+        jTxtCidade);
+        
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

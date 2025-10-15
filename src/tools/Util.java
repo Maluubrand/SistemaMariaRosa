@@ -4,12 +4,14 @@
  */
 package tools;
 
+import java.net.URL;
 import java.util.Date;
+import java.util.Scanner;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
+import org.json.JSONObject;
 /**
  *
  * @author u1845853
@@ -67,5 +69,33 @@ public class Util {
     }
     public static String dateToStr(Date data) {
         return "";
+    }
+     
+
+   public static void validarCep(String cep, JTextField txtEndereco, JTextField txtBairro, JTextField txtCidade) {
+        try {
+            String url = "https://viacep.com.br/ws/" + cep + "/json/";
+            String jsonStr = new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
+            JSONObject json = new JSONObject(jsonStr);
+
+            if (json.has("erro")) {
+                JOptionPane.showMessageDialog(null, "CEP não encontrado!");
+                txtEndereco.setText("");
+                txtBairro.setText("");
+                txtCidade.setText("");
+               
+            } else {
+                txtEndereco.setText(json.optString("logradouro"));
+                txtBairro.setText(json.optString("bairro"));
+                txtCidade.setText(json.optString("localidade"));
+
+                String uf = json.optString("uf");
+                if (!uf.isEmpty()) {
+                    
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao consultar CEP: " + e.getMessage());
+        }
     }
 }

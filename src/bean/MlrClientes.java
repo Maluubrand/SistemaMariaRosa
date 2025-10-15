@@ -94,7 +94,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_nome", nullable=false, length=100)
+    @Column(name="mlr_nome", nullable=true, length=100)
     public String getMlrNome() {
         return this.mlrNome;
     }
@@ -104,7 +104,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_cpf", nullable=false, length=14)
+    @Column(name="mlr_cpf", nullable=true, length=14)
     public String getMlrCpf() {
         return this.mlrCpf;
     }
@@ -114,7 +114,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_telefone", nullable=false, length=15)
+    @Column(name="mlr_telefone", nullable=true, length=15)
     public String getMlrTelefone() {
         return this.mlrTelefone;
     }
@@ -124,7 +124,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_email", nullable=false, length=100)
+    @Column(name="mlr_email", nullable=true, length=100)
     public String getMlrEmail() {
         return this.mlrEmail;
     }
@@ -134,7 +134,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="mlr_data_nascimento", nullable=false, length=10)
+    @Column(name="mlr_data_nascimento", nullable=true, length=10)
     public Date getMlrDataNascimento() {
         return this.mlrDataNascimento;
     }
@@ -144,7 +144,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_endereco", nullable=false, length=100)
+    @Column(name="mlr_endereco", nullable=true, length=100)
     public String getMlrEndereco() {
         return this.mlrEndereco;
     }
@@ -154,7 +154,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_bairro", nullable=false, length=50)
+    @Column(name="mlr_bairro", nullable=true, length=50)
     public String getMlrBairro() {
         return this.mlrBairro;
     }
@@ -164,7 +164,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_cidade", nullable=false, length=50)
+    @Column(name="mlr_cidade", nullable=true, length=50)
     public String getMlrCidade() {
         return this.mlrCidade;
     }
@@ -174,7 +174,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_estado", nullable=false, length=2)
+    @Column(name="mlr_estado", nullable=true, length=2)
     public int getMlrEstado() {
         return this.mlrEstado;
     }
@@ -184,7 +184,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_cep", nullable=false, length=9)
+    @Column(name="mlr_cep", nullable=true, length=9)
     public String getMlrCep() {
         return this.mlrCep;
     }
@@ -194,7 +194,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="mlr_data_cadastro", nullable=false, length=10)
+    @Column(name="mlr_data_cadastro", nullable=true, length=10)
     public Date getMlrDataCadastro() {
         return this.mlrDataCadastro;
     }
@@ -204,7 +204,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_limite_credito", nullable=false, precision=10)
+    @Column(name="mlr_limite_credito", nullable=true, precision=10)
     public Double getMlrLimiteCredito() {
         return this.mlrLimiteCredito;
     }
@@ -214,7 +214,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_observacoes", nullable=false, length=50)
+    @Column(name="mlr_observacoes", nullable=true, length=50)
     public String getMlrObservacoes() {
         return this.mlrObservacoes;
     }
@@ -224,7 +224,7 @@ public class MlrClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_ativo", nullable=false, length=1)
+    @Column(name="mlr_ativo", nullable=true, length=1)
     public String getMlrAtivo() {
         return this.mlrAtivo;
     }
