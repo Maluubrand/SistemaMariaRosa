@@ -5,6 +5,8 @@
 package tools;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JComboBox;
@@ -64,12 +66,22 @@ public class Util {
 
     }
 
-       public static Date strToDate(String data) {
+       public static Date strToDate(String data) { 
+    try {
+        return new SimpleDateFormat("dd/MM/yyyy").parse(data);
+    } catch (ParseException e) {
+        mensagem("Data inválida! Use o formato dd/MM/yyyy");
         return null;
     }
-    public static String dateToStr(Date data) {
-        return "";
-    }
+}
+
+public static String dateToStr(Date data) {
+    if (data == null) return "";
+    return new SimpleDateFormat("dd/MM/yyyy").format(data);
+}
+
+
+
      
 
    public static void validarCep(String cep, JTextField txtEndereco, JTextField txtBairro, JTextField txtCidade) {

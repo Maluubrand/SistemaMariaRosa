@@ -92,6 +92,12 @@ private boolean incluir;
 
         jLabel2.setText("Data da Venda");
 
+        try {
+            jFmtDataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel3.setText("Clientes");
 
         jLabel4.setText("Funcionários");

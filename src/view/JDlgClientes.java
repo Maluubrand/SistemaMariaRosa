@@ -148,6 +148,11 @@ public class JDlgClientes extends javax.swing.JDialog {
 
         jLabel5.setText("Cpf");
 
+        try {
+            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtCpfActionPerformed(evt);
@@ -156,6 +161,11 @@ public class JDlgClientes extends javax.swing.JDialog {
 
         jLabel6.setText("Data de Nascimento");
 
+        try {
+            jFmtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataNascimentoActionPerformed(evt);
@@ -177,6 +187,11 @@ public class JDlgClientes extends javax.swing.JDialog {
 
         jLabel7.setText("CEP");
 
+        try {
+            jFmtDataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtDataCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataCadastroActionPerformed(evt);
@@ -194,6 +209,7 @@ public class JDlgClientes extends javax.swing.JDialog {
         jLabel13.setText("Estado");
 
         jCboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCboEstado.setSelectedIndex(-1);
 
         jLabel14.setText("Limite de Crédito");
 

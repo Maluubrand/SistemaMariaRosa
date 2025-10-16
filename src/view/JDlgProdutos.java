@@ -100,6 +100,11 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
         jLabel7.setText("Descrição");
 
+        try {
+            jFmtDataValidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmtDataValidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmtDataValidadeActionPerformed(evt);
@@ -107,6 +112,7 @@ public class JDlgProdutos extends javax.swing.JDialog {
         });
 
         jCboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pão", "Doce", "Bebida", "Salgado", "Confeitaria" }));
+        jCboCategoria.setSelectedIndex(-1);
         jCboCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCboCategoriaActionPerformed(evt);
