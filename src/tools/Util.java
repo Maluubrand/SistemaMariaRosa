@@ -85,29 +85,39 @@ public static String dateToStr(Date data) {
      
 
    public static void validarCep(String cep, JTextField txtEndereco, JTextField txtBairro, JTextField txtCidade) {
-        try {
-            String url = "https://viacep.com.br/ws/" + cep + "/json/";
-            String jsonStr = new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
-            JSONObject json = new JSONObject(jsonStr);
+    try {
+        cep = cep.trim().replaceAll("[^0-9]", ""); // remove espaços e caracteres não numéricos
 
-            if (json.has("erro")) {
-                JOptionPane.showMessageDialog(null, "CEP não encontrado!");
-                txtEndereco.setText("");
-                txtBairro.setText("");
-                txtCidade.setText("");
-               
-            } else {
-                txtEndereco.setText(json.optString("logradouro"));
-                txtBairro.setText(json.optString("bairro"));
-                txtCidade.setText(json.optString("localidade"));
-
-                String uf = json.optString("uf");
-                if (!uf.isEmpty()) {
-                    
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao consultar CEP: " + e.getMessage());
+        if (cep.isEmpty() || cep.length() != 8) {
+            JOptionPane.showMessageDialog(null, "Cep salvo com sucesso");
+            return;
         }
+
+        String url = "https://viacep.com.br/ws/" + cep + "/json/";
+        Scanner scanner = new Scanner(new URL(url).openStream(), "UTF-8");
+
+        if (!scanner.hasNext()) {
+            JOptionPane.showMessageDialog(null, "Não foi possível obter dados do CEP!");
+            return;
+        }
+
+        String jsonStr = scanner.useDelimiter("\\A").next();
+        JSONObject json = new JSONObject(jsonStr);
+
+        if (json.has("erro")) {
+            JOptionPane.showMessageDialog(null, "CEP não encontrado!");
+            txtEndereco.setText("");
+            txtBairro.setText("");
+            txtCidade.setText("");
+        } else {
+            txtEndereco.setText(json.optString("logradouro"));
+            txtBairro.setText(json.optString("bairro"));
+            txtCidade.setText(json.optString("localidade"));
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Erro ao consultar CEP: " + e.getMessage());
     }
+}
+
 }
