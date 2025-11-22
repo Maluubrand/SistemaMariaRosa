@@ -289,7 +289,7 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-       Util.habilitar(true,jTxtCodigo,
+       Util.habilitar(true,
        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(false,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
        Util.limpar(jTxtCodigo,

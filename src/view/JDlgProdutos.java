@@ -273,7 +273,7 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtCodigo,jTxtNome,jTxtDescricao,jCboCategoria,jFmtPreco,jFmtDataValidade,
+        Util.habilitar(true,jTxtNome,jTxtDescricao,jCboCategoria,jFmtPreco,jFmtDataValidade,
                 jTxtMarca, jBtnConfirmar, jBtnCancelar);       
         Util.habilitar(false, 
         jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);

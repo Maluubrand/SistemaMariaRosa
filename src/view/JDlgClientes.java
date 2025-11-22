@@ -496,7 +496,7 @@ public class JDlgClientes extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtCodigo,jTxtNome,jFmtCpf, jTxtTelefone,jTxtEmail,jFmtDataNascimento, 
+        Util.habilitar(true,jTxtNome,jFmtCpf, jTxtTelefone,jTxtEmail,jFmtDataNascimento, 
                 jTxtEndereco, jTxtBairro, jTxtCidade, jCboEstado, jFmtCep,jFmtDataCadastro,jFmtLimiteCredito,
                 jTxtObservacoes,jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, 
