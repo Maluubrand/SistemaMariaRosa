@@ -5,6 +5,7 @@
  */
 package dao;
 
+import bean.MlrVendas;
 import bean.MlrVendasProdutos;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -48,6 +49,14 @@ public class VendasProdutosDAO extends AbstractDAO{
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MlrVendasProdutos.class);
         criteria.add(Restrictions.eq("mlr_id_vendas_produtos", codigo));
+        List lista = criteria.list();
+        session.getTransaction().commit();        
+        return lista;
+    }
+     public Object listProdutos(MlrVendas vendas) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MlrVendasProdutos.class);
+        criteria.add(Restrictions.eq("vendas", vendas));
         List lista = criteria.list();
         session.getTransaction().commit();        
         return lista;

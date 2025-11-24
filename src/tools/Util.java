@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -43,9 +45,9 @@ public class Util {
         JOptionPane.showMessageDialog(null, cad);
     }
 
-    public static boolean pergunta(String cad) {
-        JOptionPane.showConfirmDialog(null, cad);
-        return true;
+   public static boolean pergunta(String cad) {
+    return JOptionPane.showConfirmDialog(null, cad) == JOptionPane.YES_OPTION;
+
     }
 
     public static int strToInt(String num) {
@@ -66,19 +68,20 @@ public class Util {
 
     }
 
-       public static Date strToDate(String data) { 
-    try {
-        return new SimpleDateFormat("dd/MM/yyyy").parse(data);
-    } catch (ParseException e) {
-        mensagem("Data inválida! Use o formato dd/MM/yyyy");
+        public static Date strToDate(String data) {
+          SimpleDateFormat fm = new SimpleDateFormat("dd/MM/YYYY");
+        try {
+            return fm.parse(data);
+        } catch (ParseException ex) {
+            Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
-}
 
 public static String dateToStr(Date data) {
-    if (data == null) return "";
-    return new SimpleDateFormat("dd/MM/yyyy").format(data);
-}
+        SimpleDateFormat fm = new SimpleDateFormat("dd/MM/YYYY");
+        return fm.format(data);
+    }
 
 
 
