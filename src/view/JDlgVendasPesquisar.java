@@ -20,6 +20,7 @@ public class JDlgVendasPesquisar extends javax.swing.JDialog {
      */
     private JDlgVendas jDlgVendas;
     ControllerVendas controllerVendas;
+    
 
     public JDlgVendasPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -34,7 +35,7 @@ public class JDlgVendasPesquisar extends javax.swing.JDialog {
     }
 
     public void setTelaAnterior(JDlgVendas jDlgVendas) {
-        this.JDlgVendas = jDlgVendas;
+        this.jDlgVendas = jDlgVendas;
     }
 
     /**
