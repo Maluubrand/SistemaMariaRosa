@@ -299,6 +299,10 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+        if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Alterar.");
+        return;
+    }
        Util.habilitar(true,
        jTxtNome, jFmtCpf, jTxtEmail, jTxtTelefone, jFmtSalario, jCboCargo, jBtnConfirmar, jBtnCancelar);
        Util.habilitar(false,jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
@@ -307,6 +311,10 @@ public class JDlgFuncionarios extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Alterar.");
+        return;
+    }
        if (Util.pergunta("Deseja excluir ?") == true) {
             FuncionariosDAO funcionariosDAO = new FuncionariosDAO();
             funcionariosDAO.delete( viewBean() );

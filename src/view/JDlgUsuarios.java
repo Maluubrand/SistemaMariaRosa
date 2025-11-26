@@ -324,6 +324,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
        if (Util.pergunta("Deseja excluir ?") == true) {
             UsuariosDAO usuariosDAO = new UsuariosDAO();
             usuariosDAO.delete( viewBean() );
@@ -334,6 +338,10 @@ public class JDlgUsuarios extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Alterar.");
+        return;
+    }
         Util.habilitar(true, 
         jTxtNome,  jTxtApelido, jFmtCpf, jFmtDataNascimento, jPwdSenha, jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);          
         Util.habilitar(false, 

@@ -7,6 +7,7 @@ package view;
 import java.util.List;
 import dao.ClientesDAO;
 import bean.MlrClientes;
+import tools.Util;
 
 /**
  *
@@ -61,6 +62,11 @@ ControllerClientes controllerClientes;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jBtnOk.setText("Ok");
@@ -97,10 +103,22 @@ ControllerClientes controllerClientes;
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
+        if (jTable1.getSelectedRow() == -1) {
+            Util.mensagem("Nenhum registro foi selecionada. Favor selecionar um registro.");
+        }else{
         MlrClientes clientes =  controllerClientes.getBean( jTable1.getSelectedRow() );
         jDlgClientes.beanView(clientes);
         this.setVisible(false);
+        
+         }                                      
     }//GEN-LAST:event_jBtnOkActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+          if (evt.getClickCount() == 2) {
+            jBtnOkActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

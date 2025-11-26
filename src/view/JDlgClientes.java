@@ -496,6 +496,10 @@ public class JDlgClientes extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+        if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
         Util.habilitar(true,jTxtNome,jFmtCpf, jTxtTelefone,jTxtEmail,jFmtDataNascimento, 
                 jTxtEndereco, jTxtBairro, jTxtCidade, jCboEstado, jFmtCep,jFmtDataCadastro,jFmtLimiteCredito,
                 jTxtObservacoes,jChbAtivo, jBtnConfirmar, jBtnCancelar);
@@ -507,6 +511,11 @@ public class JDlgClientes extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+        if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
+
        if (Util.pergunta("Deseja excluir ?") == true) {
             ClientesDAO clientesDAO = new ClientesDAO();
             clientesDAO.delete( viewBean() );

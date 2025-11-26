@@ -273,6 +273,10 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Alterar.");
+        return;
+    }
         Util.habilitar(true,jTxtNome,jTxtDescricao,jCboCategoria,jFmtPreco,jFmtDataValidade,
                 jTxtMarca, jBtnConfirmar, jBtnCancelar);       
         Util.habilitar(false, 
@@ -283,6 +287,10 @@ public class JDlgProdutos extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+         if (jTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
         if (Util.pergunta("Deseja excluir ?") == true) {
             ProdutosDAO produtosDAO = new ProdutosDAO();
             produtosDAO.delete( viewBean() );

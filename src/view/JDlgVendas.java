@@ -354,6 +354,10 @@ public class JDlgVendas extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+         if (MlrjTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Alterar.");
+        return;
+    }
         Util.habilitar(true, MlrjFmtDataVenda, MlrjCboClientes, 
             MlrjCboFuncionarios, MlrjTxtTotal,
             jBtnConfirmar, jBtnCancelar);
@@ -364,6 +368,10 @@ public class JDlgVendas extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
+         if (MlrjTxtCodigo.getText().trim().isEmpty()) {
+        Util.mensagem("Pesquise antes de Excluir.");
+        return;
+    }
         if (Util.pergunta("Deseja excluir ?") == true) {
             VendasDAO vendasDAO = new VendasDAO();       
             VendasProdutosDAO vendasProdutosDAO = new VendasProdutosDAO();
