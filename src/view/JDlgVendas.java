@@ -33,6 +33,10 @@ public class JDlgVendas extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Vendas");
+        Util.habilitar(false, MlrjTxtCodigo,  MlrjCboClientes,
+                MlrjCboFuncionarios, MlrjFmtDataVenda,
+                MlrjTxtTotal, jBtnConfirmar, jBtnCancelar);
+        
         ClientesDAO clientesDAO = new ClientesDAO();
         List lista = (List) clientesDAO.listAll();
         for (int i = 0; i < lista.size(); i++) {
@@ -114,7 +118,19 @@ public class JDlgVendas extends javax.swing.JDialog {
 
         jLabel2.setText("Data da Venda");
 
+        try {
+            MlrjFmtDataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel3.setText("Clientes");
+
+        MlrjCboClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MlrjCboClientesActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Funcionarios");
 
@@ -309,12 +325,13 @@ public class JDlgVendas extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf,
-//            jFmtDataDeNascimento, jPwfSenha, jCboNivel, jChbAtivo,
-//            jBtnConfirmar, jBtnCancelar);
-//        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-//        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDataDeNascimento,
-//            jPwfSenha, jCboNivel, jChbAtivo);
+        Util.habilitar(false,MlrjTxtCodigo,  MlrjCboClientes,
+                MlrjCboFuncionarios, MlrjFmtDataVenda,
+                MlrjTxtTotal,   jBtnConfirmar, jBtnCancelar);      
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.limpar( MlrjTxtCodigo,  MlrjCboClientes,
+                MlrjCboFuncionarios, MlrjFmtDataVenda,
+                MlrjTxtTotal);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
@@ -341,7 +358,6 @@ public class JDlgVendas extends javax.swing.JDialog {
             MlrjCboFuncionarios, MlrjTxtTotal,
             jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, MlrjCboFuncionarios, MlrjTxtTotal);
         controllerVenProd.setList(new ArrayList());
         incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
@@ -366,14 +382,15 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         VendasDAO vendasDAO = new VendasDAO();
-        VendasProdutosDAO pedidosProdutosDAO = new VendasProdutosDAO();
+        VendasProdutosDAO vendasProdutosDAO = new VendasProdutosDAO();
         MlrVendas vendas = viewBean();
         if (incluir == true) {
             vendasDAO.insert(vendas  );
             for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
                 MlrVendasProdutos vendasProdutos = controllerVenProd.getBean(ind);
+                vendasProdutos.setMlrIdVendasProdutos(ind);
                 vendasProdutos.setMlrVendas(vendas);
-                pedidosProdutosDAO.insert(vendasProdutos);
+                vendasProdutosDAO.insert(vendasProdutos);
             }
         } else {
             vendasDAO.update(vendas);
@@ -415,6 +432,10 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void MlrjTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MlrjTxtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MlrjTxtCodigoActionPerformed
+
+    private void MlrjCboClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MlrjCboClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MlrjCboClientesActionPerformed
 
     /**
      * @param args the command line arguments

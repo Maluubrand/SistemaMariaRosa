@@ -33,7 +33,7 @@ public class ControllerVendas extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -47,6 +47,8 @@ public class ControllerVendas extends AbstractTableModel {
             return vendas.getMlrTotal();
         } else if (columnIndex ==3) {
             return vendas.getMlrClientes().getMlrNome();
+        }else if (columnIndex ==4) {
+            return vendas.getMlrFuncionarios().getMlrNome();
         }
         return ""; 
     }
@@ -61,6 +63,8 @@ public class ControllerVendas extends AbstractTableModel {
             return "Total";
         } else if ( columnIndex == 3) {
             return "Cliente";
+        } else if ( columnIndex == 4) {
+            return "Funcionários";
         } 
         return "";
     }

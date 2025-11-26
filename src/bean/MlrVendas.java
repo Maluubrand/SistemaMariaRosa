@@ -88,7 +88,7 @@ public class MlrVendas  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="mlr_data_venda", nullable=false, length=10)
+    @Column(name="mlr_data_venda", length=10)
     public Date getMlrDataVenda() {
         return this.mlrDataVenda;
     }
@@ -98,7 +98,7 @@ public class MlrVendas  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_total", nullable=false, precision=10)
+    @Column(name="mlr_total", precision=10)
     public Double getMlrTotal() {
         return this.mlrTotal;
     }
@@ -108,7 +108,7 @@ public class MlrVendas  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_forma_pagamento", nullable=false, length=50)
+    @Column(name="mlr_forma_pagamento", length=50)
     public String getMlrFormaPagamento() {
         return this.mlrFormaPagamento;
     }
@@ -118,7 +118,7 @@ public class MlrVendas  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_status", nullable=false, length=50)
+    @Column(name="mlr_status", length=50)
     public String getMlrStatus() {
         return this.mlrStatus;
     }

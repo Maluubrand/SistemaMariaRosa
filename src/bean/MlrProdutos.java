@@ -31,6 +31,7 @@ public class MlrProdutos  implements java.io.Serializable {
 
     public MlrProdutos() {
     }
+    
 
 	
     public MlrProdutos(int mlrIdProdutos) {
@@ -117,9 +118,12 @@ public class MlrProdutos  implements java.io.Serializable {
     public void setMlrDataValidade(Date mlrDataValidade) {
         this.mlrDataValidade = mlrDataValidade;
     }
+    
 
-
-
+    @Override
+    public String toString() {
+        return this.mlrNome;
+    }
 
 }
 

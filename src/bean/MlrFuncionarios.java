@@ -118,9 +118,16 @@ public class MlrFuncionarios  implements java.io.Serializable {
     public String toString() {
         return this.mlrNome;
     }
+     public boolean equals(Object object) {
+        if (object instanceof MlrFuncionarios) {
+            MlrFuncionarios funcionarios = (MlrFuncionarios) object;
+            if (funcionarios.getMlrIdFuncionarios()== this.getMlrIdFuncionarios()) {
+                return true;
+            }
+        }
+        return false;
 
-
-
+    }
 }
 
 

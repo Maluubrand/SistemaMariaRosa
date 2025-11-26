@@ -77,7 +77,7 @@ public class MlrVendasProdutos  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_quantidade", nullable=false)
+    @Column(name="mlr_quantidade", nullable=true)
     public int getMlrQuantidade() {
         return this.mlrQuantidade;
     }
@@ -87,7 +87,7 @@ public class MlrVendasProdutos  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_preco_unitario", nullable=false, precision=10)
+    @Column(name="mlr_preco_unitario", nullable=true, precision=10)
     public Double getMlrPrecoUnitario() {
         return this.mlrPrecoUnitario;
     }
@@ -97,7 +97,7 @@ public class MlrVendasProdutos  implements java.io.Serializable {
     }
 
     
-    @Column(name="mlr_desconto", nullable=false, precision=10)
+    @Column(name="mlr_desconto", nullable=true, precision=10)
     public Double getMlrDesconto() {
         return this.mlrDesconto;
     }
@@ -107,7 +107,7 @@ public class MlrVendasProdutos  implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="mlr_data_cadastro", nullable=false, length=10)
+    @Column(name="mlr_data_cadastro", nullable=true, length=10)
     public Date getMlrDataCadastro() {
         return this.mlrDataCadastro;
     }

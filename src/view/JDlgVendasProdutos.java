@@ -23,7 +23,7 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
     public JDlgVendasProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Pedidos produtos");
+        setTitle("Vendas produtos");
         setLocationRelativeTo(null);
          jTxtQuantidade.setText("1");
         ProdutosDAO produtosDAO = new ProdutosDAO();

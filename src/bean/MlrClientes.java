@@ -236,6 +236,17 @@ public class MlrClientes  implements java.io.Serializable {
     public String toString() {
         return this.mlrNome;
     }
+     @Override
+    public boolean equals(Object object) {
+        if (object instanceof MlrClientes) {
+            MlrClientes clientes = (MlrClientes) object;
+            if (clientes.getMlrIdClientes()== this.getMlrIdClientes()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
 
