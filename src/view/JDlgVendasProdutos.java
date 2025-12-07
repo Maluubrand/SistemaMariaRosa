@@ -17,6 +17,7 @@ import tools.Util;
  */
 public class JDlgVendasProdutos extends javax.swing.JDialog {
     JDlgVendas jDlgVendas;
+    boolean incluir;
     /**
      * Creates new form JDlgPedidosProdutos
      */
@@ -35,9 +36,17 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
        
     }
     
-    public void setTelaAnterior(JDlgVendas jDlgVendas) {
+   public void setTelaAnterior(JDlgVendas jDlgVendas, MlrVendasProdutos vendasProdutos) {
         this.jDlgVendas = jDlgVendas;
+        if (vendasProdutos != null) {
+            incluir = false;
+            jCboProdutos.setSelectedItem(vendasProdutos.getMlrProdutos());
+            jTxtQuantidade.setText(Util.intToStr(vendasProdutos.getMlrQuantidade()));        
+        } else {
+            incluir = true;
+        }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,8 +175,12 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
         vendasProdutos.setMlrProdutos((MlrProdutos) jCboProdutos.getSelectedItem());
         vendasProdutos.setMlrQuantidade(Util.strToInt(jTxtQuantidade.getText()) );
         vendasProdutos.setMlrPrecoUnitario(Util.strToDouble(jTxtPrecoUnitario.getText()) );                
-        jDlgVendas.controllerVenProd.addBean(vendasProdutos);
-        setVisible(false);
+        if (incluir == true) {
+           jDlgVendas.controllerVenProd.addBean(vendasProdutos);
+        } else {
+            jDlgVendas.controllerVenProd.removeBean(jDlgVendas.getjTable1().getSelectedRow());
+            jDlgVendas.controllerVenProd.addBean(vendasProdutos);
+        }        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

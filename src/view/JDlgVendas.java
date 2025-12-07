@@ -15,6 +15,7 @@ import dao.VendasProdutosDAO;
 import dao.FuncionariosDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import tools.Util;
 
 /**
@@ -35,7 +36,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         setTitle("Vendas");
         Util.habilitar(false, MlrjTxtCodigo,  MlrjCboClientes,
                 MlrjCboFuncionarios, MlrjFmtDataVenda,MlrjTxtFormaPagamento,MlrjTxtStatus,
-                MlrjTxtTotal, jBtnConfirmar, jBtnCancelar,jBtnIncluirProd,jBtnExcluirProd,jBtnAlterarProd);
+                MlrjTxtTotal, jBtnConfirmar, jBtnCancelar);
         
         ClientesDAO clientesDAO = new ClientesDAO();
         List lista = (List) clientesDAO.listAll();
@@ -51,6 +52,9 @@ public class JDlgVendas extends javax.swing.JDialog {
         controllerVenProd = new ControllerVendasProdutos();
         controllerVenProd.setList(new ArrayList());
         jTable1.setModel(controllerVenProd);
+    }
+     public JTable getjTable1() {
+        return jTable1;
     }
 
     public MlrVendas viewBean() {
@@ -156,6 +160,11 @@ public class JDlgVendas extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
@@ -355,7 +364,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(false,MlrjTxtCodigo,  MlrjCboClientes,
                 MlrjCboFuncionarios, MlrjFmtDataVenda,
-                MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,  jBtnConfirmar, jBtnCancelar,jBtnIncluirProd,jBtnExcluirProd,jBtnAlterarProd);      
+                MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,  jBtnConfirmar, jBtnCancelar);      
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar( MlrjTxtCodigo,  MlrjCboClientes,
                 MlrjCboFuncionarios, MlrjFmtDataVenda,
@@ -373,7 +382,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, 
             MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,
-           jBtnConfirmar, jBtnCancelar,jBtnIncluirProd,jBtnExcluirProd,jBtnAlterarProd);
+           jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus );
         controllerVenProd.setList(new ArrayList());
@@ -388,7 +397,7 @@ public class JDlgVendas extends javax.swing.JDialog {
     }
         Util.habilitar(true, MlrjFmtDataVenda, MlrjCboClientes, 
             MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,
-           jBtnConfirmar, jBtnCancelar,jBtnIncluirProd,jBtnExcluirProd,jBtnAlterarProd);
+           jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         controllerVenProd.setList(new ArrayList());
         incluir = false;
@@ -435,7 +444,7 @@ public class JDlgVendas extends javax.swing.JDialog {
 
         Util.habilitar(false, MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, 
             MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,
-            jBtnConfirmar, jBtnCancelar,jBtnIncluirProd,jBtnExcluirProd,jBtnAlterarProd);
+            jBtnConfirmar, jBtnCancelar);
         Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus );
         controllerVenProd.setList(new ArrayList());
@@ -455,13 +464,15 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void jBtnAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarProdActionPerformed
         // TODO add your handling code here:
         JDlgVendasProdutos jDlgVendasProdutos = new JDlgVendasProdutos(null, true);
+        MlrVendasProdutos vendasProdutos = controllerVenProd.getBean(jTable1.getSelectedRow());
+        jDlgVendasProdutos.setTelaAnterior(this, vendasProdutos);
         jDlgVendasProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnAlterarProdActionPerformed
 
     private void jBtnIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirProdActionPerformed
         // TODO add your handling code here:
         JDlgVendasProdutos jDlgVendasProdutos = new JDlgVendasProdutos(null, true);
-        jDlgVendasProdutos.setTelaAnterior(this);
+        jDlgVendasProdutos.setTelaAnterior(this,null);
         jDlgVendasProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 
@@ -472,6 +483,13 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void MlrjCboClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MlrjCboClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MlrjCboClientesActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            jBtnAlterarProdActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
