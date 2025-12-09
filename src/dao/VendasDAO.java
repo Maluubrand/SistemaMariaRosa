@@ -52,6 +52,46 @@ public class VendasDAO extends AbstractDAO{
         session.getTransaction().commit();        
         return lista;
     }
+    
+    public Object listClientes(String nomeCliente) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(MlrVendas.class);
+    Criteria clienteCrit = criteria.createCriteria("mlrClientes");
+    clienteCrit.add(Restrictions.like("nome", "%" + nomeCliente + "%"));
+    List lista = criteria.list();
+    session.getTransaction().commit();      
+    return lista;
+}
+    public Object listFuncionarios(String nomeFuncionario) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MlrVendas.class);
+        Criteria funcionarioCrit = criteria.createCriteria("mlrFuncionarios"); 
+        funcionarioCrit.add(Restrictions.like("mlrNome", "%" + nomeFuncionario + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();      
+        return lista;
+}
+    public Object listTotal(double total) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MlrVendas.class);
+        criteria.add(Restrictions.ge("mlrTotal", total));
+        List lista = criteria.list();
+        session.getTransaction().commit();        
+        return lista;
+    } 
+    
+    public Object listFuncCliTotal(String nomeCliente, String nomeFuncionario, double total) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(MlrVendas.class);
+        Criteria clienteCrit = criteria.createCriteria("mlrClientes");
+        clienteCrit.add(Restrictions.like("mlrNome", "%" + nomeCliente + "%"));
+        Criteria funcionarioCrit = criteria.createCriteria("mlrFuncionarios");
+        funcionarioCrit.add(Restrictions.like("mlrNome", "%" + nomeFuncionario + "%"));
+        criteria.add(Restrictions.ge("mlrTotal", total));
+        List lista = criteria.list();
+        session.getTransaction().commit();      
+        return lista;
+}
 
     @Override
     public Object listAll() {
