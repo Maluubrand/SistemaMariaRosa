@@ -56,6 +56,18 @@ public class JDlgVendas extends javax.swing.JDialog {
      public JTable getjTable1() {
         return jTable1;
     }
+     public void TotalProdutos() {
+        double total = 0;
+
+        for (int i = 0; i < controllerVenProd.getRowCount(); i++) {
+            MlrVendasProdutos item = controllerVenProd.getBean(i);
+
+            double valorItem = item.getMlrQuantidade()* item.getMlrPrecoUnitario();
+            total += valorItem;
+        }
+
+        MlrjTxtTotal.setText(String.valueOf(total));
+    }
 
     public MlrVendas viewBean() {
         MlrVendas vendas = new MlrVendas();
@@ -457,6 +469,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         } else {
             if (Util.pergunta("Deseja excluir o produto ?") == true) {
                 controllerVenProd.removeBean(jTable1.getSelectedRow());
+                TotalProdutos();
             }
         }
     }//GEN-LAST:event_jBtnExcluirProdActionPerformed
@@ -470,6 +483,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         MlrVendasProdutos vendasProdutos = controllerVenProd.getBean(jTable1.getSelectedRow());
         jDlgVendasProdutos.setTelaAnterior(this, vendasProdutos);
         jDlgVendasProdutos.setVisible(true);
+        TotalProdutos();
     }
     }//GEN-LAST:event_jBtnAlterarProdActionPerformed
 
@@ -478,6 +492,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         JDlgVendasProdutos jDlgVendasProdutos = new JDlgVendasProdutos(null, true);
         jDlgVendasProdutos.setTelaAnterior(this,null);
         jDlgVendasProdutos.setVisible(true);
+        TotalProdutos();
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 
     private void MlrjTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MlrjTxtCodigoActionPerformed

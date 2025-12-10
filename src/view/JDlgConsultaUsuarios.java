@@ -56,6 +56,7 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
         jFmtCpf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jBtnConsultar = new javax.swing.JButton();
+        jBtnPdf4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,14 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
             }
         });
 
+        jBtnPdf4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img1/alterar_1.png"))); // NOI18N
+        jBtnPdf4.setText("Imprimir");
+        jBtnPdf4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnPdf4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,6 +114,8 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBtnPdf4)
+                        .addGap(18, 18, 18)
                         .addComponent(jBtnOk))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +127,8 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBtnConsultar)))))
+                                .addComponent(jBtnConsultar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -134,10 +146,12 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jFmtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBtnConsultar))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jBtnOk)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnOk)
+                    .addComponent(jBtnPdf4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -170,6 +184,21 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
         }
         controllerConsultasUsuarios.setList(lista);
     }//GEN-LAST:event_jBtnConsultarActionPerformed
+
+    private void jBtnPdf4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPdf4ActionPerformed
+        // TODO add your handling code here:
+        try {
+            boolean completa = jTable1.print();
+            if (completa) {
+                Util.mensagem("PDF criado com sucesso!!!");
+            } else {
+                Util.mensagem("A impressão não foi concluida.");
+            }
+        } catch (java.awt.print.PrinterException e) {
+            Util.mensagem("Falha ao gerar PDF " + e.getMessage());
+            System.err.println("Erro a o criar PDF " + e.getMessage());
+        }
+    }//GEN-LAST:event_jBtnPdf4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +276,7 @@ public class JDlgConsultaUsuarios extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnConsultar;
     private javax.swing.JButton jBtnOk;
+    private javax.swing.JButton jBtnPdf4;
     private javax.swing.JTextField jFmtCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
