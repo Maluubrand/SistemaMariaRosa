@@ -10,7 +10,7 @@ import bean.MlrUsuarios;
 import tools.Util;
 /**
  *
- * @author 
+ * @author Maria
  */
 public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 

@@ -13,7 +13,7 @@ import tools.Util;
 
 /**
  *
- * @author u1845853
+ * @author Maria
  */
 public class JDlgVendasProdutos extends javax.swing.JDialog {
     JDlgVendas jDlgVendas;

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author 
+ * @author Maria
  */
 public class JFrmPrincipal extends javax.swing.JFrame {
 

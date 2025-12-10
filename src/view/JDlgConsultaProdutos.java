@@ -11,7 +11,7 @@ import tools.Util;
 
 /**
  *
- * @author 
+ * @author Maria
  */
 public class JDlgConsultaProdutos extends javax.swing.JDialog {
   ControllerConsultasProdutos controllerConsultasProdutos;

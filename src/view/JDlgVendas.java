@@ -20,7 +20,7 @@ import tools.Util;
 
 /**
  *
- * @author u1845853
+ * @author Maria
  */
 public class JDlgVendas extends javax.swing.JDialog {
 
@@ -58,10 +58,8 @@ public class JDlgVendas extends javax.swing.JDialog {
     }
      public void TotalProdutos() {
         double total = 0;
-
         for (int i = 0; i < controllerVenProd.getRowCount(); i++) {
             MlrVendasProdutos item = controllerVenProd.getBean(i);
-
             double valorItem = item.getMlrQuantidade()* item.getMlrPrecoUnitario();
             total += valorItem;
         }

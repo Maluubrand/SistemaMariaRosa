@@ -11,7 +11,7 @@ import tools.Util;
 
 /**
  *
- * @author TheFoursalesCo
+ * @author Maria
  */
 public class JDlgFuncionarios extends javax.swing.JDialog {
        

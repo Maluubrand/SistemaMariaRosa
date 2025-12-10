@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author
+ * @author Maria
  */
 public class ControllerConsultasVendas extends AbstractTableModel {
 

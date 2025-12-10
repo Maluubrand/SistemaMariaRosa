@@ -11,7 +11,7 @@ import tools.Util;
 
 /**
  *
- * @author Usuario2
+ * @author Maria
  */
 public class JDlgLogin extends javax.swing.JDialog {
 

@@ -10,7 +10,7 @@ import tools.Util;
 
 /**
  *
- * @author
+ * @author Maria
  */
 public class JDlgConsultaVendas extends javax.swing.JDialog {
 
