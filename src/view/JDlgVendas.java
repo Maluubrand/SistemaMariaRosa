@@ -393,7 +393,7 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         Util.habilitar(true, MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, 
-            MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,
+            MlrjCboFuncionarios,MlrjTxtFormaPagamento,MlrjTxtStatus ,
            jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         Util.limpar(MlrjTxtCodigo, MlrjFmtDataVenda, MlrjCboClientes, MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus );
@@ -408,7 +408,7 @@ public class JDlgVendas extends javax.swing.JDialog {
         return;
     }
         Util.habilitar(true, MlrjFmtDataVenda, MlrjCboClientes, 
-            MlrjCboFuncionarios, MlrjTxtTotal,MlrjTxtFormaPagamento,MlrjTxtStatus ,
+            MlrjCboFuncionarios, MlrjTxtFormaPagamento,MlrjTxtStatus ,
            jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
         controllerVenProd.setList(new ArrayList());
