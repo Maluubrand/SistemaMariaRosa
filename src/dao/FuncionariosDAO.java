@@ -61,20 +61,20 @@ public class FuncionariosDAO extends AbstractDAO{
         return lista;
     }
 
-    public Object listCpf(String cpf) {
+    public Object listCargo(int cargo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MlrFuncionarios.class);
-        criteria.add(Restrictions.like("mlrCpf", "%" + cpf + "%"));
+        criteria.add(Restrictions.eq("mlrCargo", cargo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
     }
 
-    public Object listNomeCpf(String nome, String cpf) {
+    public Object listNomeCargo(String nome, int cargo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(MlrFuncionarios.class);
         criteria.add(Restrictions.like("mlrNome", "%" + nome + "%"));
-        criteria.add(Restrictions.ge("mlrCpf", cpf ));
+        criteria.add(Restrictions.eq("mlrCargo", cargo ));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
